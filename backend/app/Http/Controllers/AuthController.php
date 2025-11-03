@@ -25,7 +25,7 @@ class AuthController extends Controller
             'name' => $fields['name'],
             'email' => $fields['email'],
             'password' => Hash::make($fields['password']),
-            'is_admin' => false, 
+            'tipo' => 'cliente', 
         ]);
 
         $token = $user->createToken('ecommerce-token')->plainTextToken;

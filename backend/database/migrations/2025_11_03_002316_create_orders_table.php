@@ -14,18 +14,23 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             
+            
             // Chave Estrangeira para o Cliente
             $table->foreignId('user_id')->constrained()->onDelete('cascade'); 
             
-            $table->decimal('quantidade_total', 10, 2); // Corrigido para 'quantidade_total'
-            
+            $table->decimal('quantidade_total', 10, 2); 
             // Status do Pedido
             $table->enum('status', ['pendente', 'processando', 'enviado', 'entregue', 'cancelado'])
                   ->default('pendente');
                   
-            $table->string('codigo_rastreamento')->nullable(); // Corrigido para 'codigo_rastreamento'
+            $table->string('codigo_rastreamento')->nullable();
             
             $table->timestamps();
+            $table->foreignId('address_id')
+                  ->nullable() // Permite nulo
+                  ->after('user_id') // Opcional: só para organizar
+                  ->constrained('addresses') // Liga à tabela 'addresses'
+                  ->onDelete('set null'); // Se o endereço for apagado, fica 'null' na encomenda
         });
     }
 

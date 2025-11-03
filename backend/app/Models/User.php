@@ -21,7 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'is_admin',
+        'tipo',
     ];
 
     /**
@@ -45,5 +45,24 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    /**
+     * Um Usuário tem muitos Pedidos (Orders).
+     */
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+    
+    /**
+     * Um Usuário pode ter muitos Endereços (Addresses).
+     */
+    public function addresses()
+    {
+        return $this->hasMany(Address::class);
+    }
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
     }
 }
