@@ -15,10 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             
-            $table->string('rua'); // Corrigido para 'rua'
-            $table->string('cidade'); // Corrigido para 'cidade'
-            $table->string('estado', 2); // Corrigido para 'estado'
-            $table->string('cep', 9); // Corrigido para 'cep'
+            $table->string('rua'); 
+            $table->string('cidade'); 
+            $table->string('estado', 2); 
+            $table->string('cep', 9); 
+            $table->string('numero')->nullable(); // Número da casa/apartamento
+            $table->string('complemento')->nullable();
             
             $table->boolean('is_shipping')->default(true);
             

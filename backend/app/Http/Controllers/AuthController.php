@@ -25,7 +25,7 @@ class AuthController extends Controller
             'name' => $fields['name'],
             'email' => $fields['email'],
             'password' => Hash::make($fields['password']),
-            'tipo' => 'cliente', 
+            'tipo' => 'cliente', // Usa 'tipo' como preferido
         ]);
 
         $token = $user->createToken('ecommerce-token')->plainTextToken;
@@ -54,8 +54,7 @@ class AuthController extends Controller
 
         $user = Auth::user();
 
-        // Cria o token. Uma abordagem comum é deletar os tokens antigos, mas aqui criaremos um novo para esta sessão.
-        // Se você quiser revogar o token anterior para forçar um único login ativo: $user->tokens()->delete();
+        // Cria o token.
         $token = $user->createToken('ecommerce-token')->plainTextToken;
 
         return response()->json([

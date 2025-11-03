@@ -15,11 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
-            $table->text('descricao')->nullable(); // Corrigido para 'descricao'
-            
+            $table->text('descricao')->nullable(); 
+            $table->string('imagem_url')->nullable();
+
             // Campos de Preço e Estoque
             $table->decimal('price', 8, 2);
-            $table->unsignedInteger('qunatidade_estoque')->default(0); // Corrigido para 'qunatidade_estoque'
+            $table->unsignedInteger('qunatidade_estoque')->default(0); 
             
             // Chave Estrangeira para Categoria
             $table->foreignId('category_id')

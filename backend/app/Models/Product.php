@@ -12,10 +12,11 @@ class Product extends Model
     protected $fillable = [
         'name', 
         'slug', 
-        'description', 
+        'descricao', 
         'price', 
-        'stock_quantity', 
-        'category_id'
+        'qunatidade_estoque', 
+        'category_id',
+        'imagem_url'
     ];
 
     // --- RELACIONAMENTOS ELOQUENT ---

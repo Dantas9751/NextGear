@@ -16,8 +16,6 @@ class Order extends Model
         'codigo_rastreamento'
     ];
 
-    // --- RELACIONAMENTOS ELOQUENT ---
-
     /**
      * O Pedido pertence a um Usuário.
      */

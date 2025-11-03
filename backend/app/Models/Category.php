@@ -10,9 +10,6 @@ class Category extends Model
     use HasFactory;
     
     protected $fillable = ['name', 'slug'];
-
-    // --- RELACIONAMENTOS ELOQUENT ---
-
     /**
      * Uma Categoria tem muitos Produtos (Products).
      */

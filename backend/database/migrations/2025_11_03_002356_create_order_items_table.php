@@ -18,9 +18,8 @@ return new class extends Migration
             $table->foreignId('order_id')->constrained()->onDelete('cascade');
             $table->foreignId('product_id')->constrained()->onDelete('restrict'); 
             
-            $table->unsignedInteger('quantidade'); // Corrigido para 'quantidade'
-            $table->decimal('preco', 8, 2); // Corrigido para 'preco'
-            
+            $table->unsignedInteger('quantidade'); 
+            $table->decimal('preco', 8, 2); 
             $table->timestamps();
         });
     }
